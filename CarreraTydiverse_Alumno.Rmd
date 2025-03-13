@@ -577,7 +577,8 @@ print(mdy("March 12, 1975")) #La importo con mdy
 fecha<-'19200102'
 ymd(fecha)
 
-
+print(dmy(25081985))
+print(ymd("1920-01-02"))
 
 
 ```
