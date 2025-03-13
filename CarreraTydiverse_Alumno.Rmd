@@ -292,13 +292,14 @@ print(top_counts)
 ```
 23. Repite el apartado anterior utilizando **pipes** para que finalmente el resultado se ordene, en orden descendente, según el número de descargas (`count`) y se almacene el la variable `top_counts_sorted`
 ```{r}
+top_counts_sorted <- pack_sum %>%
+  filter(count > threshold) %>%
+  arrange(desc(count))
 
 
 
 
-
-
-
+print(top_counts_sorted)
 
 
 ```
