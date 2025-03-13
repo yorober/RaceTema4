@@ -469,7 +469,12 @@ print(gradebook)
 34. Consideremos el caso de una observación almacenada en varias tablas. Observa los datos almacenados en `failed` y `passed` con la información de los alumnos que suspeden (calificaciones C,D,E,F) y los que aprueban (calificaciones A, B). Debes unir ambos conjuntos en uno que contenga una columna adicional llamada `status` que indicará `passed` o `failed` según la situación de cada alumno, puedes usar la función `bind_rows`.
 ```{r}
 
+combinacion <- bind_rows(
+  failed %>% mutate(status = "failed"),
+  passed %>% mutate(status = "passed")
+)
 
+print(combinacion)
 
 ```
 # Pongamos todo en común.
