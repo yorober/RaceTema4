@@ -203,6 +203,8 @@ cran2 %>%
 ```
 13. Ordena `cran2` según los valores de `country` (ascendente), `r_version` (desdencente) e `ip_id`(ascendente).
 ```{r}
+cran2 %>%
+  arrange(country, desc(r_version), desc(ip_id))
 ```
 14. Selecciona el subconjunto formado por las variables, del `cran`, `ip_id, package y size` 
 en este orden y almacénalas en `cran3`.
