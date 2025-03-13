@@ -217,13 +217,17 @@ head(cran3)
 
 15. Crea una nueva variable en `cran3` llamada `size_mb` que contenga el tamaño de la descarga expresado en Mbytes ($1Mbyte=2^{20}$ bytes).
 ```{r}
-cran3 %>%
+cran3 <- cran3 %>%
   mutate(size_mb = size / 2^20)
 
+head(cran3)
 ```
 16. Sabiendo que 1Gb son $2^{10}$ Mbytes, crea una nueva variable en `cran3` llamada `size_gb` que contenga el tamaño de la descarga expresado en Gbytes.
 ```{r}
+cran3 <- cran3 %>%
+  mutate(size_gb = size / 2^10)
 
+head(cran3)
 ```
 17. Considera que se ha detectado un error en el sistema donde todos los tamaños de las descargas son 1000 bytes menores de lo que corresponde. Crea una nueva variable llamada `correct_size` con el valor correcto. 
 ```{r}
