@@ -437,8 +437,11 @@ students3 %>%
 
 ```{r}
 
-
-
+students3 %>%
+  gather(key = "class", value = "score", -name, -test, na.rm = TRUE,) %>% 
+  spread(key = "test", value = "score") %>%
+  mutate(class = parse_number(class)) %>%
+  select(name, class, midterm, final) 
 
 
 
