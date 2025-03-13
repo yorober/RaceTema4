@@ -404,6 +404,11 @@ Carga el fichero de datos `datostidyr.Rdata` que contiene varios conjuntos de da
 La columna `grade` es la calificación y las dos siguientes el número de estudiantes hombre y mujer que han recibido dicha calificación.
 ¿ Cuáles son las variables ?. Transfórmalo en un conjunto `tidy` con las variables, `grade, sex y count`
 ```{r}
+library(tidyverse)
+load("./data/datostidyr.Rdata")
+
+students %>%
+  pivot_longer( -grade, names_to = "sex", values_to = "count")
 
 
 
