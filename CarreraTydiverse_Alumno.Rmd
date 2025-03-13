@@ -586,6 +586,12 @@ print(ymd("1920-01-02"))
 ```{r}
 
 
+dt1 <- ymd_hms("2014-08-23 17:23:02")
+print(dt1)
+
+
+hora <- hms("03:22:14")
+print(hora)
 
 
 ```
