@@ -231,7 +231,10 @@ head(cran3)
 ```
 17. Considera que se ha detectado un error en el sistema donde todos los tamaños de las descargas son 1000 bytes menores de lo que corresponde. Crea una nueva variable llamada `correct_size` con el valor correcto. 
 ```{r}
+cran3 <- cran3 %>%
+  mutate(correct_size = size + 1000)
 
+head(cran3)
 ```
 18. Usa `summarise` para determinar el valor medio del tamaño de las descargas realizadas en `cran` y almacenálo en la variable `avg_bytes`
 ```{r}
