@@ -496,11 +496,14 @@ sat %>%
 36. Utiliza agrupamientos, según las variables `part, sex` y genera dos nuevas columnas que contengan el número total de estudiantes en dicho grupo, y la proporción dentro del grupo. Almacénalas en las variables `total y prop` respectivamente.
 ```{r}
 
-
-
-
-
-
+sat %>%
+  gather(key = "part_sex", value = "count", -score_range) %>%
+  separate(part_sex, into = c("part", "sex")) %>%
+  group_by(part, sex) %>%
+  summarise(
+    total = sum(count),
+    prop = count / total
+  )
 
 
 
