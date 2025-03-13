@@ -245,8 +245,10 @@ cran %>%
 
 19. Crea un agrupamiento del tibble `cran` según la variable `package` y almacénalo en la variable `by_package`. Observa el nuevo elemento creado y aunque aparentemente no hay cambio al principio, se indica que se ha hecho un agrupamiento. Éste agrupamiento se puede deshacer con la función `ungroup`.
 ```{r}
+by_package <- cran %>%
+  group_by(package)
 
-
+head(by_package)
 ```
 
 20. Usa la función `summarise` sobre  el elemento agrupado y calcula  el valor medio de la variable `size`. Observa el efecto del agrupamiento en el resultado.
