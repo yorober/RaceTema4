@@ -617,10 +617,20 @@ print(this_moment)
   
 ```{r}
 
+nyc <- now("America/New_York")
 
+salida <- nyc + days(2)
+salida <- update(salida, hours = 17, minutes = 34)
+llegada_ny <- salida + hours(15) + minutes(50)
+llegada_hk <- with_tz(llegada_ny, "Asia/Hong_Kong")
 
+ultima_vez <- ymd("2008-06-17", tz = "Asia/Singapore")
+tiempo_transcurrido <- as.period(interval(ultima_vez, llegada_hk))
 
-
+print(salida)
+print(llegada_ny)
+print(llegada_hk)
+print(tiempo_transcurrido)
 
 
 
