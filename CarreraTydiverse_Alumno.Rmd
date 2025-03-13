@@ -496,27 +496,32 @@ sat %>%
 36. Utiliza agrupamientos, según las variables `part, sex` y genera dos nuevas columnas que contengan el número total de estudiantes en dicho grupo, y la proporción dentro del grupo. Almacénalas en las variables `total y prop` respectivamente.
 ```{r}
 
-sat %>%
+sat_group <- sat %>%
   gather(key = "part_sex", value = "count", -score_range) %>%
   separate(part_sex, into = c("part", "sex")) %>%
   group_by(part, sex) %>%
   summarise(
+    score_range,
+    count,
     total = sum(count),
     prop = count / total
   )
 
-
+print(sat_group)
 
 ```
 37. Representa gráficamente el conjunto obtenido para mostrar las diferencias entre hombres y mujeres, en las diferentes pruebas para cada una de las franjas de calificación.
 ```{r}
 
 
-
-
-
-
-
+ggplot(sat_group, aes(x = score_range, y = prop, fill = sex)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~part) +
+  labs(
+    title = "Sexo y calificaciones",
+    x = "Rango de puntuación",
+    y = "Proporción"
+  )
 
 
 
