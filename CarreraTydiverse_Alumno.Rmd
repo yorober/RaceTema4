@@ -309,9 +309,12 @@ print(top_counts_sorted)
 ```{r}
 
 
+top_unique_sorted <- pack_sum %>%
+  filter(unique > quantile(pack_sum$unique, probs = 0.99)) %>%
+  arrange(desc(unique))
 
 
-
+print(top_unique_sorted)
 
 
 
