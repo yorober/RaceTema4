@@ -426,8 +426,10 @@ students2 %>%
 ```
 31. Considera el conjunto `students3` y observa por qué no es un `tidy data` . Las variables finales del conjunto deberían ser: `name, class, midterm, final`. Dado que un alumno solo puede estar en una de las clases aparecen muchos `NA`, al reorganizar, usa `na.rm=TRUE` en las opciones de `gather`
 ```{r}
-
-
+students3 %>%
+  gather(key = "class", value = "score", -name, -test, na.rm = TRUE,) %>% 
+  spread(key = "test", value = "score") %>%
+  select(name, class, midterm, final)
 
 
 ```
