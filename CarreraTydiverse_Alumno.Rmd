@@ -416,6 +416,10 @@ students %>%
 30. Considera el conjunto ´students2´, que es similar al primero pero que se han recogido datos correspondientes a dos grupos, (`male_1, female_1`, etc). Transfórmalo en un conjunto `tidy` añadiendo una columna adicional correspondiente al grupo (llama a la nueva variable `class`)
 ```{r}
 
+students2 %>%
+  pivot_longer(-grade, values_to = "count", names_to = "sex_class") %>%
+  separate(sex_class, into = c("sex", "class"))
+
 
 
 
