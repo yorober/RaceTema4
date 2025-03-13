@@ -603,7 +603,8 @@ print(dt2)
 44. Podemos reasingar nuevos valores a una variable fecha/hora con la función `update`
 , por ejemplo: `update(this_moment, hours = 8, minutes = 34, seconds = 55)`. Actualiza la variable `this_moment` creada anteriormente para que contenga la hora actual.
 ```{r}
-
+this_moment <- update(this_moment, hours = hour(now()), minutes = minute(now()), seconds = second(now()))
+print(this_moment)
 ```
 45. __Zonas horarias__. Considera que estás en Nueva York, que planeas visitar a un amigo en Hong Kong y que has perdido tu itinerario, pero sabes que tu vuelo sale de Nueva York a las 17:34 (17:34 horas) pasado mañana. También sabes que el vuelo está programado para llegar a Hong Kong exactamente 15 horas y 50 minutos después de la salida. Vamos a reconstruir el itinerario:
   + Genera la fecha actual, con `now` e indica la zona horaria de Nueva York(America/New_York) (la función `OlsonNames()` devuelve todas las zonas horarias) y almacénala en la variable `nyc`.
