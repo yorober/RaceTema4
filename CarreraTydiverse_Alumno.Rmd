@@ -91,8 +91,9 @@ Se pueden descargar ficheros actuales del `logs` usando la librería https://r-h
 
 
 ```{r,eval=FALSE}
+library(readr)
 # Fuente de datos http://cran-logs.rstudio.com/
-mydf <- read_csv("./data/2024-03-12.csv")
+load("./data/2024-03-12.Rdata")
 
 set.seed(seed=14032024)
 N<-200000
@@ -100,6 +101,7 @@ I<-sample(1:nrow(mydf),size=N,replace=FALSE)
 mydf<-mydf[I,]
 # Guardamos en formato binario, la primera vez que cargamos
 save(file = './data/2024-03-12.Rdata',list=c('mydf'))
+eval = FALSE
 ```
 
 Después de la primera carga poner **eval=FALSE** en el *chunk* anterior para acelerar la ejecución.
@@ -118,8 +120,8 @@ mydf %>% dim
 ```
 2. Para facilitar el manejo transforma los datos en un tibble `as_tibble` y almacena el resultado con el nombre `cran`, y borra el data frame original (usa `rm`)
 ```{r}
-
-
+cran <- as_tibble(mydf)
+rm(mydf)
 ```
 3. Una ventaja de trasformar en tibble es la visualización. Escribe directamente el nombre de la variable y observa la visualización. Posteriormente usa la función `glimpse` sobre `cran` y observa el resultado.
 ```{r}
