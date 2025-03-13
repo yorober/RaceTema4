@@ -125,7 +125,8 @@ rm(mydf)
 ```
 3. Una ventaja de trasformar en tibble es la visualización. Escribe directamente el nombre de la variable y observa la visualización. Posteriormente usa la función `glimpse` sobre `cran` y observa el resultado.
 ```{r}
-
+cran
+glimpse(cran)
 
 ```
 # dplyr
@@ -133,7 +134,8 @@ rm(mydf)
 
 4. Elige únicamente las variables `ip_id, package, country`
 ```{r}
-
+cran %>%
+  select(ip_id, package, country)
 ```
 5. Elige todas las variables entre `r_arch y country` 
 ```{r}
