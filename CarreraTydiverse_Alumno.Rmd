@@ -485,7 +485,9 @@ Considera los datos almacenado en `sat` y haz las transformaciones adecuadas par
 ```{r}
 
 
-
+sat %>%
+  gather(key = "part_sex", value = "count", -score_range) %>%
+  separate(part_sex, into = c("part", "sex"))
 
 
 
