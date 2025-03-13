@@ -552,9 +552,12 @@ print(wday(this_day))
 y muéstralo por pantalla. Usa las funciónes `hour, minute, second` para extraer la información de cada elemento.
 ```{r}
 
+this_moment <- now()
 
-
-
+print(this_moment)
+print(hour(this_moment))
+print(minute(this_moment))
+print(second(this_moment))
 
 ```
 40. La librería `lubridate` dispone de múltiples funciones para importar en formato fecha datos con un gran variedad de formatos de entrada `ymd(), dmy(), hms(), ymd_hms()` donde cada letra indica _years (y),months (m), days (d), hours (h), minutes (m), y seconds (s)_. Prueba my_date <- ymd("2019-02-14"), y determina de que clase es `my_date`. Las funciones son muy robustas y pueden intepretar correctamente diversos formato. Prueba `ymd()` para importar la fecha  __"1989 May 17"__. ¿Cómo importarías __"March 12, 1975"__?
